@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Verification Test
+This line was added to verify repository access and PR creation functionality.
+
 ## Getting Started
 
 First, run the development server:
