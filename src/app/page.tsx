@@ -97,7 +97,95 @@ export default function PartyInvite() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-indigo-100 flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Floating Particles */}
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-white/20 rounded-full"
+            initial={{
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+            }}
+            animate={{
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+            }}
+            transition={{
+              duration: 15 + Math.random() * 10,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "linear"
+            }}
+          />
+        ))}
+        
+        {/* Larger Floating Bubbles */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={`bubble-${i}`}
+            className="absolute bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full"
+            style={{
+              width: 40 + Math.random() * 60,
+              height: 40 + Math.random() * 60,
+            }}
+            initial={{
+              x: -100,
+              y: Math.random() * window.innerHeight,
+            }}
+            animate={{
+              x: window.innerWidth + 100,
+              y: Math.random() * window.innerHeight,
+            }}
+            transition={{
+              duration: 20 + Math.random() * 15,
+              repeat: Infinity,
+              ease: "linear",
+              delay: Math.random() * 10
+            }}
+          />
+        ))}
+
+        {/* Animated Gradient Overlay */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
+          animate={{
+            x: ["-100%", "100%"],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+
+        {/* Twinkling Stars */}
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={`star-${i}`}
+            className="absolute text-yellow-300/60"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              fontSize: `${8 + Math.random() * 8}px`
+            }}
+            animate={{
+              opacity: [0.3, 1, 0.3],
+              scale: [0.8, 1.2, 0.8],
+            }}
+            transition={{
+              duration: 2 + Math.random() * 3,
+              repeat: Infinity,
+              delay: Math.random() * 5
+            }}
+          >
+            ✨
+          </motion.div>
+        ))}
+      </div>
+
       <AnimatePresence mode="wait">
         {submitted ? (
           <motion.div
